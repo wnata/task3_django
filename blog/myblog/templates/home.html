@@ -4,9 +4,12 @@
 
 <ul>
   <h1>Post list</h1>
-  {% for post in object_list reversed %}
+  {% for post in object_list %}
   <li>
-    <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a> - {{post.author.first_name }} {{ post.author.last_name }} - <small><a href="{% url 'update_post' post.pk %}">(Edit)</a></small>
+    <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
+     - {{post.author.first_name }} {{ post.author.last_name }} - 
+    <small><a href="{% url 'update_post' post.pk %}">(Edit)</a>
+    <a href="{% url 'delete_post' post.pk %}">(Delete)</a></small>
     <br />
     <small> Post date: {{ post.date }}</small><br />
     {{ post.body }}

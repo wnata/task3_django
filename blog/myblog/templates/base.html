@@ -19,10 +19,16 @@
     <header class="d-flex justify-content-center py-3">
       <ul class="nav nav-pills">
         <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="{% url 'add_post' %}" class="nav-link">Add post</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        
+        
+        {% if user.is_authenticated %}
+          <li class="nav-item"><a href="{% url 'add_post' %}" class="nav-link">Add post</a></li>
+          <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+        {% else %}
+          <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+          <li class="nav-item"><a href="{% url 'register' %}" class="nav-link">Register</a></li>
+        {% endif %}
+        
       </ul>
     </header>
   </div>

@@ -1,5 +1,3 @@
-from copy import deepcopy
-from re import template
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -17,6 +15,16 @@ class HomeView(ListView):
 class ArticleDetailView(DetailView):
     model = Post
     template_name = 'article_dets.html'
+
+
+def CategoryView(request, cats):
+    category_posts = Post.objects.filter(category=cats)
+
+    return render(request, 'categories.html', 
+                    {   'cats': cats.title(),
+                        'category_posts': category_posts
+                        }
+                        )
 
 
 class AddPostView(CreateView):

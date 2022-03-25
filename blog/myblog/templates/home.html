@@ -16,7 +16,7 @@
     {% endif %}
     <br />
     <small> Post date: {{ post.date }}</small><br />
-    {{ post.body|slice":200" }}
+    {{ post.body|slice:":200"|safe }}
   </li>
   {% endfor %}
 </ul>

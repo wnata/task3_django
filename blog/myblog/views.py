@@ -43,7 +43,7 @@ class CategoryView(ListView):
     fields = '__all__'
 
     def get_context_data(self, *args, **kwargs):
-        post_by_cat = Post.objects.filter(category=self.kwargs['category'])
+        post_by_cat = Post.objects.filter(category=self.kwargs['category'].replace('-', ' '))
         context = super(CategoryView, self).get_context_data(*args, **kwargs)
 
         context['category_posts'] = post_by_cat

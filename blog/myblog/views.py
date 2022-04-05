@@ -3,12 +3,13 @@ from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, Category
-from .forms import PostForm, EditPostForm
+from .forms import PostForm, EditPostForm, ChoicesForm
 from django.urls import reverse_lazy
 
 
 class HomeView(ListView):
     model = Post
+    #form_class = ChoicesForm
     template_name = 'home.html'
     ordering = ['-date']
 

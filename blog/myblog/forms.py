@@ -1,4 +1,3 @@
-from secrets import choice
 from django import forms
 from .models import Post, Category
 
@@ -8,6 +7,14 @@ choice_list = []
 
 for item in choices:
     choice_list.append(item)
+
+class ChoicesForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name',]
+        widgets = {
+            'category': forms.Select(choices=choice_list ,attrs={'class': 'form-control'}),
+                    }
 
 class PostForm(forms.ModelForm):
     class Meta:

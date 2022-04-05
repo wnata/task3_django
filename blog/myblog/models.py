@@ -5,8 +5,14 @@ from django.utils.timezone import now
 from django.utils.text import slugify
 
 
+
 class Category(models.Model):
-    name = models.CharField(max_length=255)
+    CATEGORY_CHOICES = (
+        ('coding', 'coding'),
+        ('coding', 'sports'),
+        ('coding', 'life'),
+    )
+    name = models.CharField(max_length=255, choices = CATEGORY_CHOICES)
     
     def __str__(self):
         return f'{self.name}'

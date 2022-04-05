@@ -9,6 +9,7 @@
   {% for post in object_list %}
   <li>
     <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a>
+     - <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a>
      - {{post.author.first_name }} {{ post.author.last_name }}  
      {% if user.is_authenticated %}
      - <small><a href="{% url 'update_post' post.pk %}">(Edit)</a>
@@ -21,4 +22,8 @@
   {% endfor %}
 </ul>
 
+<form action="" method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Create" />
+</form>
 {% endblock %}

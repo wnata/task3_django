@@ -29,11 +29,15 @@
             
             {% for item in cat_menu %}
             <li><a class="dropdown-item" href="{% url 'category' item|slugify %}">{{ item }}</a></li>
-              <br/>
             {% endfor %}
 
           </ul>
         </li>
+
+        {% else %}
+
+        <li class="nav-item"><a href="{% url 'category-list' %}" class="nav-link">Categories</a></li>
+        
         {% endif %}
         {% if user.is_authenticated %}
           <li class="nav-item"><a href="{% url 'add_post' %}" class="nav-link">Add post</a></li>

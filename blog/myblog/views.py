@@ -38,6 +38,18 @@ class ArticleDetailView(DetailView):
 #                         }
 #                         )
 
+
+def CategoryListView(request):
+    cat_menu_list = Category.objects.all()
+    
+    return render(request, 'category_list.html', 
+                    {  'cat_menu_list': cat_menu_list
+                        }
+                        )
+
+
+
+
 class CategoryView(ListView):
     model = Post
     template_name = 'categories.html'

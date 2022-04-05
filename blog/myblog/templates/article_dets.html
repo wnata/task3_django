@@ -5,11 +5,17 @@
 {% block body %}
 
 <h1>{{ post.title }}</h1>
+<small>Category: <a href="{% url 'category' post.category|slugify %}">{{ post.category }}</a></small>
+<br/>
 <small>By: {{ post.author.first_name }} {{ post.author.last_name }}</small>
+{% if user.is_authenticated %}
+    <small><a href="{% url 'update_post' post.pk %}">(Edit)</a>
+    <a href="{% url 'delete_post' post.pk %}">(Delete)</a></small>
+{% endif %}    
 <br />
 <hr />
 <br />
-{{ post.body }}
+{{ post.body|safe }}
 <br /><br />
 <a href="{% url 'home' %}" class="btn btn-info">Back</a>
 {% endblock %}

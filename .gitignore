@@ -39,3 +39,9 @@ pip-delete-this-directory.txt
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+blog/myblog/__pycache__/admin.cpython-38.pyc
+blog/myblog/__pycache__/admin.cpython-38.pyc
+blog/myblog/__pycache__/forms.cpython-38.pyc
+blog/myblog/__pycache__/models.cpython-38.pyc
+blog/myblog/__pycache__/urls.cpython-38.pyc
+blog/myblog/__pycache__/views.cpython-38.pyc
